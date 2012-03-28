@@ -1,5 +1,5 @@
 Auditorium::Application.routes.draw do
-  root :to => "Home#index"
+  root :to => "Page#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
