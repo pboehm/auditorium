@@ -24,7 +24,7 @@
       <a class="brand" href="#">auditorium@i77i.de</a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Home" %></li>
+          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Diskussionen" %></li>
           <li><%= link_to "FAQ" %></li>
         </ul>
@@ -34,10 +34,9 @@
 </div>
 
 <div class="container">
-
   <div class="row">
     <div class="span9"><%= yield %></div>
-    <div class="span3"><div>
+    <div class="span3"></div>
   </div>
 </div>
 

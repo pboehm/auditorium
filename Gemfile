@@ -22,6 +22,11 @@ group :assets do
   gem "twitter-bootstrap-rails"
 end
 
+group :development do
+  gem 'guard'
+  gem 'guard-test'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
