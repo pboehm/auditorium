@@ -1,9 +1,7 @@
 Auditorium::Application.routes.draw do
-  get "comments/new"
-
-  get "comments/destroy"
-
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   root :to => "Page#index"
 

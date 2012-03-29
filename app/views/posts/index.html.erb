@@ -1,23 +1,21 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Message</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.message %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Aktuelle Diskussionen</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Thema</th>
+      <th>Autor</th>
+      <th>Aktualisiert</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to shorten_text(post.message), post_path(post) %></td>
+        <td>--Autor--</td>
+        <td><%= post.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+<%= link_to 'Neue Diskussion erstellen', new_post_path, :class => 'btn btn-primary btn-large' %>

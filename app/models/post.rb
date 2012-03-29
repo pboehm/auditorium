@@ -13,4 +13,6 @@ class Post < ActiveRecord::Base
   validates_length_of :message, :within => 15..600
 
   has_many :comments
+
+  default_scope :order => "updated_at DESC"
 end

@@ -13,7 +13,6 @@ class PageControllerTest < ActionController::TestCase
 
     assert_select "div.hero-unit" do
       assert_select "h1", "Willkommen"
-      assert_select "a.btn", "Login"
     end
   end
 end
