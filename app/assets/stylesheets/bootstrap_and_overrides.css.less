@@ -17,3 +17,38 @@ body { padding-top: 60px; }
 //
 // Example:
 // @linkColor: #ff0000;
+
+div.container > div.row > div.span12 > h1 {
+    margin-bottom: 10px
+}
+
+div.post {
+    .border-radius();
+    background-color: @grayLighter;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+}
+
+div.post > .header {
+    padding: 5px;
+    background-color: @grayDark;
+    color: white;
+    .border-radius();
+}
+
+div.post > .header > span.date {
+    float: right;
+}
+
+div.post > .body {
+    padding: 10px;
+}
+
+div.post > .footer {
+    padding: 5px;
+}
+
+div.post > .footer > form {
+    padding: 0px;
+    margin: 0px;
+}

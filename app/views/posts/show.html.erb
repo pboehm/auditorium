@@ -1,45 +1,41 @@
 <h1>Diskussion #<%= @post.id %></h1>
 
 <div class="post">
-  <div class="post_header">
-    <span class="author">--Autor--</span>
+  <div class="header">
+    <span class="author">Max Mustermann</span>
     <span class="date"><%= @post.updated_at %></span>
   </div>
 
-  <div class="post_body">
+  <div class="body">
     <%= @post.message %>
   </div>
-  <div class="post_footer">
-    <%= simple_form_for([@post, @post.comments.build], :html => { :class => 'form-inline' } ) do |f| %>
+  <div class="footer">
+    <%= simple_form_for([@post, @post.comments.build], 
+          :html => { :class => 'form-inline' } ) do |f| %>
 
     <%= f.text_field :message %>
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit "kommentieren", :class => 'btn btn-inverse btn-small' %>
 
     <% end %>
   </div>  
 </div>
 
-<% if @post.comments.any? %>
-
-<div>
-  <h3>Kommentare:</h3>
-
+<div id="comments">
   <% @post.comments.each do |comment| %>
-  <div class="comment">
-    <div class="header">
-      <span class="author">--Autor--</span>
-      <span class="date"><%= comment.updated_at %></span>
-    </div>
-    <div class="body">
-      <%= comment.message  %>
-    </div>
-  </div>
+
+    <% if comment.valid? %>
+      <div class="comment">
+        <blockquote>
+          <p>
+          <%= comment.message  %>
+          </p>
+          <small>Hans Wurst vor 
+            <%= format_time_diff(comment.created_at) %></small>
+        </blockquote>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
-<% end %>
-
-
 <%= link_to 'Back', posts_path, :class => 'btn'  %>
 <%= link_to 'Edit', edit_post_path(@post), :class => 'btn' %>
-<%= link_to 'Delete', post_path(@post), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>

@@ -11,8 +11,8 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= link_to shorten_text(post.message), post_path(post) %></td>
-        <td>--Autor--</td>
-        <td><%= post.created_at %></td>
+        <td>Max Mustermann</td>
+        <td>vor <%= format_time_diff post.created_at %></td>
       </tr>
     <% end %>
   </tbody>
