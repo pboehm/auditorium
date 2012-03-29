@@ -39,3 +39,19 @@
 
 <%= link_to 'Back', posts_path, :class => 'btn'  %>
 <%= link_to 'Edit', edit_post_path(@post), :class => 'btn' %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      $('div.post > div.body').emoticonize({
+        //delay: 800,
+        animate: false
+        //exclude: 'pre, code, .no-emoticons'
+        });
+      $('#comments > div.comment > blockquote > p').emoticonize({
+        //delay: 800,
+        animate: false
+        //exclude: 'pre, code, .no-emoticons'
+        });
+      });
+</script>
+
