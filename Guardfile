@@ -10,5 +10,6 @@ guard :test do
   watch(%r{^app/models/(.+)\.rb$})                   { |m| "test/unit/#{m[1]}_test.rb" }
   watch(%r{^app/controllers/(.+)\.rb$})              { |m| "test/functional/#{m[1]}_test.rb" }
   watch(%r{^app/views/.+\.rb$})                      { "test/integration" }
+  watch(%r{^app/views/.+\.erb$})                      { "test/integration" }
   watch('app/controllers/application_controller.rb') { ["test/functional", "test/integration"] }
 end

@@ -1,4 +1,6 @@
 Auditorium::Application.routes.draw do
+  resources :posts
+
   root :to => "Page#index"
 
   # The priority is based upon order of creation:

@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer         not null, primary key
+#  message    :text
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: Dies ist eine valide Nachricht die mehr als 15 Zeichen haben sollte
+
+two:
+  message: Dies ist eine zweite Nachricht mit mehr als 15 Zeichen
