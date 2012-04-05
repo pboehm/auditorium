@@ -23,13 +23,26 @@
       </a>
 
       <%= link_to("auditorium@i77i.de", root_path, :class => "brand") %>
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Diskussionen", posts_path %></li>
-          <li><%= link_to "FAQ" %></li>
-        </ul>
-      </div>
+      <% if current_user -%>
+          
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "Diskussionen", posts_path %></li>
+            <li><%= link_to "FAQ" %></li>
+          </ul>
+
+          <ul class="nav pull-right">
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle" 
+              data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Logout", logout_path %></li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+
+      <% end -%>
     </div>
   </div>
 </div>

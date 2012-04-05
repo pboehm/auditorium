@@ -1,4 +1,11 @@
-<h1>Aktuelle Diskussionen</h1>
+<div class="page-header">
+  <h1>Aktuelle Diskussionen</h1>
+</div>
+
+<% flash.each do |name, message| %>
+<b><% message -%></b>
+<% end -%>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -18,4 +25,5 @@
   </tbody>
 </table>
 
-<%= link_to 'Neue Diskussion erstellen', new_post_path, :class => 'btn btn-primary btn-large' %>
+<%= link_to 'Neue Diskussion erstellen', new_post_path, 
+:class => 'btn btn-primary btn-large' %>

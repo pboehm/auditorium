@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="span12">
+
+    <div class="hero-unit">
+      <h1>Willkommen</h1>
+      <p>im Auditorium, der Diskussionsplattform für Studenten <br/>
+      der Informationstechnik/Technischen Informatik an der 
+      Universität Rostock.</p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="row">
+  <div class="span5 login_box">
+
+    <div class="page-header">
+      <h1>Login</h1>
+    </div>
+
+    <% flash.each do |name, message| %>
+      <b><% message -%></b>
+    <% end -%>
+
+    <%= simple_form_for :session, :url => sessions_path, 
+            :html => { :class => 'well' } do |f| %>  
+
+    <fieldset>
+      <%= f.input :email, 
+                  :label => 'E-Mail', 
+                  :input_html => { :name => 'email' } 
+                  %>
+      <%= f.input :password,
+                  :label => 'Passwort',
+                  :input_html => { :name => 'password', 
+                  :type => 'password' } 
+                  %>
+      <%= f.submit "Login", 
+                  :class => 'btn btn-primary btn-large' 
+                  %>
+    </fieldset>
+    <% end %> 
+
+  </div>
+  <div class="span7"></div>
+</div>
+  
