@@ -1,6 +1,6 @@
 <div class="post">
   <div class="header">
-    <span class="author">Max Mustermann</span>
+    <span class="author"><%= @post.user.name %></span>
     <span class="date"><%= @post.updated_at %></span>
   </div>
 
@@ -8,14 +8,14 @@
     <%= @post.message %>
   </div>
   <div class="footer">
-    <%= simple_form_for([@post, @post.comments.build], 
+    <%= simple_form_for([@post, @post.comments.build],
           :html => { :class => 'form-inline' } ) do |f| %>
 
     <%= f.text_field :message %>
     <%= f.submit "kommentieren", :class => 'btn btn-inverse btn-small' %>
 
     <% end %>
-  </div>  
+  </div>
 </div>
 
 <div id="comments">
@@ -27,7 +27,7 @@
           <p>
           <%= comment.message  %>
           </p>
-          <small>Hans Wurst vor 
+          <small><%= comment.user.name %> vor
             <%= format_time_diff(comment.created_at) %></small>
         </blockquote>
       </div>

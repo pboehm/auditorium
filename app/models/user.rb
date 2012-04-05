@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
 
     before_save :extract_name_from_email
 
+    has_many :comments
+    has_many :posts
+
     def extract_name_from_email
 
       unless attribute_present?(:name)

@@ -10,7 +10,7 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= link_to shorten_text(post.message), post_path(post) %></td>
-        <td>Max Mustermann</td>
+        <td><%= post.user.name %></td>
         <td>vor <%= format_time_diff post.created_at %></td>
       </tr>
     <% end %>
