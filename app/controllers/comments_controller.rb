@@ -5,6 +5,6 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(params[:comment])
     @comment.user = current_user
     @comment.save
-    redirect_to post_path(@post)
+    redirect_to post_path(@post), :notice => "Kommentar erfolgreich erstellt"
   end
 end

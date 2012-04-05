@@ -24,13 +24,14 @@ div.container > div.row > div.span12 > h1 {
 
 div.post {
     .border-radius();
+    .box-shadow();
     background-color: @grayLighter;
     padding-bottom: 5px;
     margin-bottom: 30px;
 }
 
 div.post > .header {
-    padding: 5px;
+    padding: 8px;
     background-color: @grayDark;
     color: white;
     .border-radius();
@@ -40,12 +41,16 @@ div.post > .header > span.date {
     float: right;
 }
 
+div.post > .header > span.author {
+    font-weight: bold;
+}
+
 div.post > .body {
     padding: 10px;
 }
 
 div.post > .footer {
-    padding: 5px;
+    padding: 5px 0px 10px 10px;
 }
 
 div.post > .footer > form {

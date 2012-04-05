@@ -5,7 +5,9 @@
   </div>
 
   <div class="body">
-    <%= @post.message %>
+    <p>
+      <%= @post.message %>
+    </p>
   </div>
   <div class="footer">
     <%= simple_form_for([@post, @post.comments.build],
@@ -35,8 +37,10 @@
   <% end %>
 </div>
 
-<%= link_to 'Back', posts_path, :class => 'btn'  %>
-<%= link_to 'Edit', edit_post_path(@post), :class => 'btn' %>
+<div class="well">
+  <%= link_to 'Zurück zur Übersicht', posts_path, :class => 'btn'  %>
+  <%= link_to 'Bearbeiten', edit_post_path(@post), :class => 'btn btn-primary' %>
+</div>
 
 <script type="text/javascript">
   $(document).ready(function(){
