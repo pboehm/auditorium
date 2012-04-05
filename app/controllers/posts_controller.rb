@@ -3,23 +3,31 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @title = "Aktuelle Diskussionen"
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    if @post
+      @title = "Diskussion #%d" % @post.id
+    end
   end
 
   # GET /posts/new
   # GET /posts/new.json
   def new
     @post = Post.new
+    @title = "Neue Diskussion erstellen"
   end
 
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    if @post
+      @title = "Diskussion #%d bearbeiten" % @post.id
+    end
   end
 
   # POST /posts
@@ -28,7 +36,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: 'Post erfolgreich erstellt.'
     else
       render action: "new"
     end
@@ -40,7 +48,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     if @post.update_attributes(params[:post])
-      redirect_to post_path(@post), notice: 'Post was successfully updated.'
+      redirect_to post_path(@post), notice: 'Post erfolgreich aktualisiert.'
     else
       render action: "edit"
     end

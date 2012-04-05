@@ -1,9 +1,9 @@
 Auditorium::Application.routes.draw do
   resources :users
-  match 'signup' => 'Users#new'
+  match 'register' => 'Users#new'
 
   resources :sessions
-  match 'login'  => 'Sessions#create'
+  match 'login'  => 'Sessions#new'
   match 'logout' => 'Sessions#destroy'
 
   resources :posts do

@@ -1,9 +1,7 @@
-<h1>Registrieren</h1>  
-
 <%= simple_form_for @user do |f| %>
   <%= f.input :email, :hint => 'Deine @uni-rostock.de-Adresse' %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>
   <%= f.button :submit %>
-<% end %>  
+<% end %>
 
