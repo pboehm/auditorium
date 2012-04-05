@@ -1,7 +1,7 @@
 <div class="post">
   <div class="header">
     <span class="author"><%= @post.user.name %></span>
-    <span class="date"><%= @post.updated_at %></span>
+    <span class="date"><%= localize(@post.updated_at, :format => :short) %></span>
   </div>
 
   <div class="body">
