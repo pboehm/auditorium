@@ -45,15 +45,26 @@ div.post > .header > span.author {
     font-weight: bold;
 }
 
-div.post > .body {
-    padding: 10px;
+div.post > .body > p {
+    padding: 20px 10px 20px 10px;
+    font-size: 16px;
 }
 
 div.post > .footer {
-    padding: 5px 0px 10px 10px;
+    padding: 5px 10px 10px 10px;
 }
 
 div.post > .footer > form {
     padding: 0px;
     margin: 0px;
+}
+
+div.post > .footer textarea.comment_box {
+    .box-sizing(border-box);
+    width: 100%;
+}
+
+div.post > .footer .actions {
+    padding: 10px 10px 0px 0px;
+    text-align: right;
 }

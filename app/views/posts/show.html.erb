@@ -13,8 +13,12 @@
     <%= simple_form_for([@post, @post.comments.build],
           :html => { :class => 'form-inline' } ) do |f| %>
 
-    <%= f.text_field :message %>
-    <%= f.submit "kommentieren", :class => 'btn btn-inverse btn-small' %>
+    <%= f.text_area :message, :class => 'comment_box', :cols => 0, :rows => 2 %>
+
+    <div class="actions">
+      <%= link_to 'Übersicht', posts_path, :class => 'btn'  %>
+      <%= f.submit "Kommentieren", :class => 'btn btn-inverse' %>
+    </div>
 
     <% end %>
   </div>
