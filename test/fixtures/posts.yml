@@ -13,6 +13,8 @@
 
 one:
   message: Dies ist eine valide Nachricht die mehr als 15 Zeichen haben sollte
+  user_id: 1
 
 two:
   message: Dies ist eine zweite Nachricht mit mehr als 15 Zeichen
+  user_id: 1

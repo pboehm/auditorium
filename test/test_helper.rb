@@ -9,5 +9,14 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  def login(email="test.testnutzer@uni-rostock.de", password="testtest")
+    old_controller = @controller
+    @controller = SessionsController.new
+
+    post :create, { :email => email, :password => password }
+    assert_match /eingeloggt/, flash[:notice]
+    assert_redirected_to root_path
+
+    @controller = old_controller
+  end
 end

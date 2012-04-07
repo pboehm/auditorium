@@ -14,8 +14,10 @@
 
 one:
   message: Dies ist ein Kommentar
-  post:
+  post_id: 1
+  user_id: 1
 
 two:
   message: Dies ist ein weiterer Kommentar
-  post:
+  post_id: 1
+  user_id: 1
