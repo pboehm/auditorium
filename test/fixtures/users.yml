@@ -13,11 +13,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
-  password_digest: MyString
-  name: MyString
+  email: test.testnutzer@uni-rostock.de
+  password_digest: $2a$10$ZkxjcLzsmOzz8UyNABSnx.uygDSpBXD8SnTv5R1Ca47j31PpcH1m.
+  name: Test Testnutzer
 
-two:
-  email: MyString
-  password_digest: MyString
-  name: MyString

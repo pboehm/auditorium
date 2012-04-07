@@ -14,7 +14,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   test "should restrict the lenght of the message" do
 
-    post = Post.new
+    post = Post.new(:user => users(:one))
     post.message = ""
     assert_equal false, post.valid?
 

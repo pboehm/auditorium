@@ -13,21 +13,24 @@
 require 'test_helper'
 
 class CommentTest < ActiveSupport::TestCase
-  test "should be valid if message and post are there" do
+  test "should be valid if message, post and user are there" do
     post = posts(:one)
     comment = comments(:one)
 
     assert_equal false, comment.valid?
 
     comment.post = post
+    assert_equal false, comment.valid?
+
+    comment.user = users(:one)
     assert_equal true, comment.valid?
   end
 
   test "should not be empty and not to large" do
-    post = posts(:one)
 
     comment = Comment.new
-    comment.post = post
+    comment.post = posts(:one)
+    comment.user = users(:one)
 
     comment.message = ""
     assert_equal false, comment.valid?

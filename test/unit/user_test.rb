@@ -15,7 +15,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @arg = {  :email => "test.testnutzer@uni-rostock.de",
+    @arg = {  :email => "secondtest.testnutzer@uni-rostock.de",
               :password => "secret",
               :password_confirmation => "secret",
     }
@@ -49,7 +49,7 @@ class UserTest < ActiveSupport::TestCase
   test "should axtract the right name from the email field" do
     user = User.new(@arg)
     user.save
-    assert_equal "Test Testnutzer", user.name
+    assert_equal "Secondtest Testnutzer", user.name
   end
 
   test "should authenticate the user" do
