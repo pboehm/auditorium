@@ -5,9 +5,9 @@
   </div>
 
   <div class="body">
-    <p>
-      <%= @post.message %>
-    </p>
+    <div class="model_message_box">
+      <%= simple_format(@post.message) %>
+    </div>
   </div>
   <div class="footer">
     <%= simple_form_for([@post, @post.comments.build],
@@ -30,9 +30,9 @@
     <% if comment.valid? %>
       <div class="comment">
         <blockquote>
-          <p>
-          <%= comment.message  %>
-          </p>
+          <div class="model_message_box">
+          <%= simple_format(comment.message)  %>
+          </div>
           <small><%= comment.user.name %> vor
             <%= format_time_diff(comment.created_at) %></small>
         </blockquote>
