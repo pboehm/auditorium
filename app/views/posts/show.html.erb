@@ -9,6 +9,7 @@
       <%= simple_format(@post.message) %>
     </div>
   </div>
+  <hr />
   <div class="footer">
     <%= simple_form_for([@post, @post.comments.build],
           :html => { :class => 'form-inline' } ) do |f| %>
