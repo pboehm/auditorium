@@ -25,6 +25,12 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+
+    unless current_user == @post.user
+      redirect_to post_path(@post),
+        notice: 'Du kannst nur eigene Diskussionen bearbeiten !!!'
+    end
+
     if @post
       @title = "Diskussion #%d bearbeiten" % @post.id
     end

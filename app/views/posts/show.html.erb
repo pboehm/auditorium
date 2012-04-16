@@ -17,8 +17,12 @@
     <%= f.text_area :message, :class => 'comment_box', :cols => 0, :rows => 2 %>
 
     <div class="actions">
-      <%= link_to 'Zurück zur Übersicht', posts_path, :class => 'btn'  %>
       <a class="btn" data-toggle="modal" href="#howto">Hinweise</a>
+
+      <% if current_user == @post.user -%>
+        <%= link_to 'Bearbeiten', edit_post_path(@post), :class => 'btn' %>
+      <% end -%>
+
       <%= f.submit "Kommentieren", :class => 'btn btn-inverse' %>
     </div>
 
@@ -45,7 +49,6 @@
 
 <div class="well">
   <%= link_to 'Zurück zur Übersicht', posts_path, :class => 'btn'  %>
-  <%= link_to 'Bearbeiten', edit_post_path(@post), :class => 'btn btn-primary' %>
 </div>
 
 <script type="text/javascript">
@@ -56,29 +59,29 @@
         animate: false
         //exclude: 'pre, code, .no-emoticons'
         });
-      $('#comments > div.comment > blockquote > p').emoticonize({
+      $('#comments > div.comment').emoticonize({
         //delay: 800,
         animate: false
         //exclude: 'pre, code, .no-emoticons'
         });
       });
-    </script>
+</script>
 
-    <div class="modal fade" id="howto">
-      <div class="modal-header">
-        <a class="close" data-dismiss="modal">×</a>
-        <h3>Hinweise für das Diskutieren</h3>
-      </div>
-      <div class="modal-body">
-        <h3>Features beim Diskutieren:</h3>
-        <ul>
-          <li>Automatisches Erkennen von Emoticons</li>
-          <li>Darstellung von mathematischen Formeln in
-          verschiedenen Formen (Latex, MathML, AsciiMath)</li>
-        </ul>
-      </div>
-      <div class="modal-footer">
+<div class="modal fade" id="howto">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Hinweise für das Diskutieren</h3>
+  </div>
+  <div class="modal-body">
+    <h3>Features beim Diskutieren:</h3>
+    <ul>
+      <li>Automatisches Erkennen von Emoticons</li>
+      <li>Darstellung von mathematischen Formeln in
+      verschiedenen Formen (Latex, MathML, AsciiMath)</li>
+    </ul>
+  </div>
+  <div class="modal-footer">
 
-      </div>
-    </div>
+  </div>
+</div>
 
