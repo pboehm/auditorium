@@ -6,7 +6,7 @@
 
   <div class="body">
     <div class="model_message_box">
-      <%= simple_format(@post.message) %>
+      <%= @post.message_html %>
     </div>
   </div>
   <hr />
@@ -37,7 +37,7 @@
       <div class="comment">
         <blockquote>
           <div class="model_message_box">
-          <%= simple_format(comment.message)  %>
+          <%= comment.message_html  %>
           </div>
           <small><%= comment.user.name %> vor
             <%= format_time_diff(comment.created_at) %></small>
@@ -78,6 +78,12 @@
       <li>Automatisches Erkennen von Emoticons</li>
       <li>Darstellung von mathematischen Formeln in
       verschiedenen Formen (Latex, MathML, AsciiMath)</li>
+      <li>Automatisches Erkennen von Links</li>
+      <li>Erkennen von Youtube-Links und Einbetten des jeweiligen Videos</li>
+      <li>Integration einer Google Maps Karte durch Posten eines links</li>
+      <li>Einbetten von Github Gists (Codeschnipsel)</li>
+      <li>Markdown-Support (nicht in Kommentaren)</li>
+      <li>Einbinden von Bildern (bei Kommentaren nur der Link)</li>
     </ul>
   </div>
   <div class="modal-footer">

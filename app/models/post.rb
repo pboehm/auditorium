@@ -17,4 +17,15 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   default_scope :order => "updated_at DESC"
+
+  auto_html_for :message do
+    html_escape
+    image
+    gist
+    redcarpet
+    google_map(:width => 400, :height => 250)
+    youtube(:width => 400, :height => 250)
+    link :target => "_blank", :rel => "nofollow"
+    simple_format
+  end
 end

@@ -30,6 +30,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'auto_html'
+
 gem 'simple_form'
 
 gem 'rails-i18n'

@@ -7,4 +7,5 @@ module PostsHelper
         return post
       end
   end
+
 end
