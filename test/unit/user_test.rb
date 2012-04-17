@@ -62,5 +62,14 @@ class UserTest < ActiveSupport::TestCase
     assert_equal userfromdb, userfromdb.authenticate(@arg[:password])
   end
 
+  test "should have a method that nromalized the supplied email" do
+    email = User.normalize_email(@arg[:email])
+    assert_equal @arg[:email], email
+
+    normalized = User.normalize_email('test.testnutzer')
+    assert_equal "test.testnutzer@uni-rostock.de", normalized
+  end
+
+
 
 end

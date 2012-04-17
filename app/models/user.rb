@@ -31,4 +31,11 @@ class User < ActiveRecord::Base
         end
       end
     end
+
+    def self.normalize_email(email)
+      unless email.match(/@\S+\./)
+        email = "#{email}@uni-rostock.de"
+      end
+      email
+    end
 end
