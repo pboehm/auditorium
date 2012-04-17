@@ -1,0 +1,9 @@
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :password, :label => "Passwort:" %>
+  <%= f.input :password_confirmation, :label => "Passwortbestätigung:" %>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Passwort ändern", :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+

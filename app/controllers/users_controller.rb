@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -12,5 +13,22 @@ class UsersController < ApplicationController
       @title = "Nutzer anlegen"
       render "new"
     end
+  end
+
+  def edit
+    @title = "Passwort ändern"
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+
+    if @user.update_attributes(params[:user])
+      redirect_to root_path, notice: 'Passwort erfolgreich geändert'
+    else
+      flash[:error] = "Passwort konnte nicht geändert werden"
+      render action: "edit"
+    end
+
   end
 end
