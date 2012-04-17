@@ -4,7 +4,7 @@
     <span class="date"><%= localize(@post.updated_at, :format => :short) %></span>
   </div>
 
-  <div class="body">
+  <div class="body" id="discussion_box">
     <div class="model_message_box">
       <%= @post.message_html %>
     </div>
@@ -51,22 +51,6 @@
   <%= link_to 'Zurück zur Übersicht', posts_path, :class => 'btn'  %>
 </div>
 
-<script type="text/javascript">
-  // emoticons
-  $(document).ready(function(){
-      $('div.post > div.body').emoticonize({
-        //delay: 800,
-        animate: false
-        //exclude: 'pre, code, .no-emoticons'
-        });
-      $('#comments > div.comment').emoticonize({
-        //delay: 800,
-        animate: false
-        //exclude: 'pre, code, .no-emoticons'
-        });
-      });
-</script>
-
 <div class="modal fade" id="howto">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
@@ -75,7 +59,6 @@
   <div class="modal-body">
     <h3>Features beim Diskutieren:</h3>
     <ul>
-      <li>Automatisches Erkennen von Emoticons</li>
       <li>Darstellung von mathematischen Formeln in
       verschiedenen Formen (Latex, MathML, AsciiMath)</li>
       <li>Automatisches Erkennen von Links</li>
