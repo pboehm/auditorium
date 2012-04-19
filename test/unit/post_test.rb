@@ -24,10 +24,10 @@ class PostTest < ActiveSupport::TestCase
     post.message = 'a' * 23
     assert_equal true, post.valid?
 
-    post.message = 'a' * 600
+    post.message = 'a' * 10000
     assert_equal true, post.valid?
 
-    post.message = 'a' * 601
+    post.message = 'a' * 10001
     assert_equal false, post.valid?
   end
 

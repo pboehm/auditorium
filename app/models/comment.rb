@@ -12,7 +12,7 @@
 
 class Comment < ActiveRecord::Base
   validates_presence_of :message, :post_id, :user_id
-  validates_length_of :message, :within => 1..600
+  validates_length_of :message, :within => 1..5000
 
   belongs_to :post
   belongs_to :user

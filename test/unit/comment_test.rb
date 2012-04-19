@@ -27,7 +27,10 @@ class CommentTest < ActiveSupport::TestCase
     comment.message = ""
     assert_equal false, comment.valid?
 
-    comment.message = 'a' * 601
+    comment.message = 'a' * 5000
+    assert_equal true, comment.valid?
+
+    comment.message = 'a' * 5001
     assert_equal false, comment.valid?
 
     comment.message = "Okay"

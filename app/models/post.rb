@@ -11,7 +11,7 @@
 
 class Post < ActiveRecord::Base
   validates_presence_of :message, :user_id
-  validates_length_of :message, :within => 15..600
+  validates_length_of :message, :within => 15..10000
 
   has_many :comments
   belongs_to :user
