@@ -25,7 +25,10 @@ class ApplicationController < ActionController::Base
   before_filter :update_last_seen
   def update_last_seen
     # every five minutes the last_seen_at value is updated
-    if current_user && (Time.now - current_user.last_seen_at) > 300
+    date = current_user.last_seen_at if current_user
+    date = (Time.new - 1.day) unless date
+
+    if current_user && (Time.now - date) > 300
       current_user.last_seen_at = Time.now
       current_user.save
     end

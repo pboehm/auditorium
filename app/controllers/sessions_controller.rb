@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :authenticate
+  skip_before_filter :update_last_seen
 
   before_filter :redirect_if_user_is_already_logged_in,
                 :only => [ :new, :create ]
