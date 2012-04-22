@@ -36,4 +36,22 @@ class Post < ActiveRecord::Base
       self.updated_at
     end
   end
+
+  # public: is post newer than the supplied datetime
+  #
+  # datetime - compared time
+  #
+  # Returns true if the post is newer, false otherwise
+  def is_newer_than(datetime)
+    self.updated_at > datetime
+  end
+
+  # Public: get comments that are newer than time
+  #
+  # datetime - compared time
+  #
+  # Returns true if the post is newer, false otherwise
+  def comments_newer_than(datetime)
+    self.comments.select { |c| c.created_at > datetime }
+  end
 end

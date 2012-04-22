@@ -9,7 +9,11 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to shorten_text(post.message), post_path(post) %></td>
+        <td>
+          <%= format_link(post) %>
+          <%= is_new_post(post) %>
+          <%= new_comments(post) %>
+        </td>
         <td><%= post.user.name %></td>
         <td>vor <%= format_time_diff post.last_activity %></td>
       </tr>

@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     if @post
+      set_post_to_viewed(@post)
       @title = "Diskussion #%d" % @post.id
     end
   end
@@ -43,6 +44,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
+      set_post_to_viewed(@post)
       redirect_to @post, notice: 'Post erfolgreich erstellt.'
     else
       render action: "new"
