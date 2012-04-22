@@ -3,7 +3,7 @@
     <tr>
       <th>Thema</th>
       <th>Autor</th>
-      <th>Aktualisiert</th>
+      <th>Letzte Aktivität</th>
     </tr>
   </thead>
   <tbody>
@@ -11,7 +11,7 @@
       <tr>
         <td><%= link_to shorten_text(post.message), post_path(post) %></td>
         <td><%= post.user.name %></td>
-        <td>vor <%= format_time_diff post.created_at %></td>
+        <td>vor <%= format_time_diff post.last_activity %></td>
       </tr>
     <% end %>
   </tbody>

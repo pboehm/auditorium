@@ -28,4 +28,12 @@ class Post < ActiveRecord::Base
     link :target => "_blank", :rel => "nofollow"
     simple_format
   end
+
+  def last_activity
+    if self.comments.size > 0
+      self.comments.last.updated_at
+    else
+      self.updated_at
+    end
+  end
 end
