@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts =
+      Post.all.sort { |p1,p2| p1.last_activity <=> p2.last_activity }.reverse
     @title = "Aktuelle Diskussionen"
   end
 
