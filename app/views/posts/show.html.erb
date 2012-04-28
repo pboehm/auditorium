@@ -7,7 +7,8 @@
   <div class="body" id="discussion_box">
       <div class="model_message_box">
           <div id="gravatar_image">
-              <img src="http://de.gravatar.com/userimage/33713493/c7ded2bf500d7dffdd5df5c18728adce.png" alt="" />
+              <%= link_to image_tag(@post.user.gravatar_url),
+              'http://gravatar.com', :target => '_blank' %>
           </div>
           <%= @post.message_html %>
       </div>

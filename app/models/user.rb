@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
     has_many :comments
     has_many :visits
 
+    include Gravtastic
+    gravtastic :filetype => :png, :size => 80
+
     def extract_name_from_email
 
       unless attribute_present?(:name)
