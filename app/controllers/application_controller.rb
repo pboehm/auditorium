@@ -8,9 +8,20 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # Public: Create a new visit or update this visit to the current time
+  #
+  # post - post that is viewd by the user
   def set_post_to_viewed(post)
-    session[:post_visits] = [] unless session[:post_visits].is_a? Array
-    session[:post_visits][post.id] = Time.now
+    if current_user && post
+      visit = Visit.find_by_user_id_and_post_id(current_user.id, post.id)
+      if visit.nil?
+        visit = Visit.new(post: post, user: current_user)
+        visit.save
+      else
+        visit.updated_at = Time.new
+        visit.save
+      end
+    end
   end
   helper_method :set_post_to_viewed
 
@@ -22,15 +33,4 @@ class ApplicationController < ActionController::Base
     redirect_to(login_path) if current_user.nil?
   end
 
-  before_filter :update_last_seen
-  def update_last_seen
-    # every five minutes the last_seen_at value is updated
-    date = current_user.last_seen_at if current_user
-    date = (Time.new - 1.day) unless date
-
-    if current_user && (Time.now - date) > 300
-      current_user.last_seen_at = Time.now
-      current_user.save
-    end
-  end
 end

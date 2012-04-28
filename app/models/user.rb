@@ -8,7 +8,7 @@
 #  name            :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
-#  last_seen_at    :datetime
+#  last_login      :datetime
 #
 
 class User < ActiveRecord::Base
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     before_save :extract_name_from_email
 
     has_many :comments
-    has_many :posts
+    has_many :visits
 
     def extract_name_from_email
 

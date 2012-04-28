@@ -8,7 +8,7 @@
 #  name            :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
-#  last_seen_at    :datetime
+#  last_login      :datetime
 #
 
 require 'test_helper'

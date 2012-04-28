@@ -13,8 +13,10 @@ class Post < ActiveRecord::Base
   validates_presence_of :message, :user_id
   validates_length_of :message, :within => 15..10000
 
-  has_many :comments
   belongs_to :user
+
+  has_many :visits
+  has_many :comments
 
   default_scope :order => "updated_at DESC"
 
@@ -29,6 +31,9 @@ class Post < ActiveRecord::Base
     simple_format
   end
 
+  # Public: the last modification time (post of comment if there are any)
+  #
+  # Returns the specific datetime
   def last_activity
     if self.comments.size > 0
       self.comments.last.updated_at
@@ -42,7 +47,9 @@ class Post < ActiveRecord::Base
   # datetime - compared time
   #
   # Returns true if the post is newer, false otherwise
-  def is_newer_than(datetime)
+  def is_newer_than?(datetime)
+    return false unless datetime
+
     self.updated_at > datetime
   end
 
@@ -50,8 +57,10 @@ class Post < ActiveRecord::Base
   #
   # datetime - compared time
   #
-  # Returns true if the post is newer, false otherwise
+  # Returns an array with new comments, empty array otherwise
   def comments_newer_than(datetime)
+    return [] unless datetime
+
     self.comments.select { |c| c.created_at > datetime }
   end
 end

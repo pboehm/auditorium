@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422131403) do
+ActiveRecord::Schema.define(:version => 20120427175246) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
@@ -36,7 +36,17 @@ ActiveRecord::Schema.define(:version => 20120422131403) do
     t.string   "name"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.datetime "last_seen_at"
+    t.datetime "last_login"
   end
+
+  create_table "visits", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "visits", ["post_id"], :name => "index_visits_on_post_id"
+  add_index "visits", ["user_id"], :name => "index_visits_on_user_id"
 
 end

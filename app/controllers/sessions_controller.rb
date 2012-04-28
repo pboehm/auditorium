@@ -20,10 +20,8 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      session[:last_login] = user.last_seen_at || Time.now
-      session[:post_visits] = []
 
-      current_user.last_seen_at = Time.now
+      current_user.last_login = Time.now
       current_user.save
 
       redirect_to root_url, :notice => "Erfolgreich eingeloggt!"
@@ -34,11 +32,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if session[:user_id]
-      user = User.find_by_id(session[:user_id])
-      user.last_seen_at = Time.now
-      user.save
-    end
     session[:user_id] = nil
     redirect_to root_url, :notice => "Erfolgreich ausgeloggt!"
   end
