@@ -12,7 +12,21 @@
 require 'test_helper'
 
 class VisitTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "should reject invalid visits" do
+    visit = Visit.new(post: posts(:one))
+    assert_equal false, visit.valid?
+
+    visit.user = users(:one)
+    assert_equal true, visit.valid?
+  end
+
+  test "should reject two equal entries" do
+    visit = Visit.new(post: posts(:one), user: users(:one))
+    visit.save
+
+    eqvisit = Visit.new(post: posts(:one), user: users(:one))
+    assert_equal false, eqvisit.valid?
+
+  end
 end
