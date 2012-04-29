@@ -13,4 +13,16 @@ class UserMailer < ActionMailer::Base
     mail(:to => "#{user.name} <#{user.email}>",
          :subject => "Auditorium Breaking News (Neue Diskussion)")
   end
+
+  # Public: finds the user that should be notified
+  #
+  # post - post that the user should be notified
+  def send_notification_to_user(post)
+
+    User.find_all_by_notify_new_posts(true).each do |user|
+      next if user == post.user
+
+      UserMailer.new_post_notification(user, post).deliver
+    end
+  end
 end

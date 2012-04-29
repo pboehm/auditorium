@@ -46,6 +46,7 @@ class PostsController < ApplicationController
 
     if @post.save
       set_post_to_viewed(@post)
+      UserMailer.send_notification_to_user(@post)
       redirect_to @post, notice: 'Post erfolgreich erstellt.'
     else
       render action: "new"

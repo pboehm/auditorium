@@ -5,7 +5,7 @@ vor kurzem hat <%= @post.user.name %> eine neue Diskussion gestartet:
   > <%= word_wrap(@post.message, :line_width => 70 )
         .gsub(/\n/, "\n  > ").html_safe %>
 
-Wenn du diesen Beitrag kommentieren möchtest besuche folgende Url:
+Wenn du diesen Beitrag kommentieren möchtest, besuche folgende Url:
   <%= post_url(@post) %>
 
 --------------------------------------------------------------------
@@ -14,4 +14,3 @@ Beiträge im Auditorium, der Diskussionsplattform für ITTI-Studenten.
 
 Wenn du diese Email nicht mehr bekommen möchtest, kannst du unter
 den Benutzereinstellungen die Art der Benachrichtigung ändern.
-
