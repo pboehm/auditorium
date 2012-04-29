@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @title = "Passwort ändern"
+    @title = "Benutzereinstellungen ändern"
     @user = current_user
   end
 
@@ -24,9 +24,9 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update_attributes(params[:user])
-      redirect_to root_path, notice: 'Passwort erfolgreich geändert'
+      redirect_to root_path, notice: 'Einstellungen erfolgreich geändert'
     else
-      flash[:error] = "Passwort konnte nicht geändert werden"
+      flash[:error] = "Einstellungen konnten nicht geändert werden"
       render action: "edit"
     end
 

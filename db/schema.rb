@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120427175246) do
+ActiveRecord::Schema.define(:version => 20120429122154) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
@@ -34,9 +34,10 @@ ActiveRecord::Schema.define(:version => 20120427175246) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "name"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.datetime "last_login"
+    t.boolean  "notify_new_posts", :default => true
   end
 
   create_table "visits", :force => true do |t|

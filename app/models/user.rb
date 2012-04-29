@@ -2,17 +2,18 @@
 #
 # Table name: users
 #
-#  id              :integer         not null, primary key
-#  email           :string(255)
-#  password_digest :string(255)
-#  name            :string(255)
-#  created_at      :datetime        not null
-#  updated_at      :datetime        not null
-#  last_login      :datetime
+#  id               :integer         not null, primary key
+#  email            :string(255)
+#  password_digest  :string(255)
+#  name             :string(255)
+#  created_at       :datetime        not null
+#  updated_at       :datetime        not null
+#  last_login       :datetime
+#  notify_new_posts :boolean         default(TRUE)
 #
 
 class User < ActiveRecord::Base
-    attr_accessible :email, :password, :password_confirmation, :name
+    attr_accessible :email, :password, :password_confirmation, :name, :notify_new_posts
     has_secure_password
 
     validates_uniqueness_of :email

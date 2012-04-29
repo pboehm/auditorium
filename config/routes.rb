@@ -1,7 +1,7 @@
 Auditorium::Application.routes.draw do
   resources :users
   match 'register' => 'Users#new'
-  match 'change_password' => 'Users#edit'
+  match 'settings' => 'Users#edit'
 
   resources :sessions
   match 'login'  => 'Sessions#new'
