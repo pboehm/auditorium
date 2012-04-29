@@ -24,7 +24,10 @@ class SessionsController < ApplicationController
       current_user.last_login = Time.now
       current_user.save
 
-      redirect_to root_url, :notice => "Erfolgreich eingeloggt!"
+      url = (session[:next_wanted_url]) ? session[:next_wanted_url] : root_url
+      session[:next_wanted_url] = nil
+
+      redirect_to url, :notice => "Erfolgreich eingeloggt!"
     else
       flash.now.alert = "E-Mail oder Passwort sind nicht korrekt!"
       render "new"

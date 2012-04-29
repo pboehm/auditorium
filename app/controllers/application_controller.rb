@@ -30,7 +30,10 @@ class ApplicationController < ActionController::Base
   # filter
   before_filter :authenticate
   def authenticate
-    redirect_to(login_path) if current_user.nil?
+    if current_user.nil?
+      session[:next_wanted_url] = request.url if request.url
+      redirect_to(login_path)
+    end
   end
 
 end
