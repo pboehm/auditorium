@@ -36,6 +36,8 @@ gem 'auto_html'
 
 gem 'simple_form'
 
+gem 'will_paginate', '~> 3.0'
+
 gem 'rails-i18n'
 
 gem 'gravtastic'

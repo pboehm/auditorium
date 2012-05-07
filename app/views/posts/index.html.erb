@@ -21,6 +21,11 @@
   </tbody>
 </table>
 
+<%= will_paginate @posts, :class=> "pager",
+                          :previous_label => "&larr;", :next_label => "&rarr;",
+                          :page_links => false,
+                          :style => "font-size: 200%"  %>
+
 <div class="well">
   <%= link_to 'Neue Diskussion erstellen', new_post_path,
         :class => 'btn btn-primary btn-large' %>

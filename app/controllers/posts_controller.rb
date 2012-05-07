@@ -1,9 +1,12 @@
+require 'will_paginate/array'
+
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts =
-      Post.all.sort { |p1,p2| p1.last_activity <=> p2.last_activity }.reverse
+    @posts = Post.all.sort { |p1,p2| p1.last_activity <=> p2.last_activity }.
+      reverse.paginate(:page => params[:page], :per_page => 8)
+
     @title = "Aktuelle Diskussionen"
   end
 
