@@ -37,6 +37,7 @@ gem 'auto_html'
 gem 'simple_form'
 
 gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate'
 
 gem 'rails-i18n'
 
