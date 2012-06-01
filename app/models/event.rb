@@ -20,4 +20,7 @@ class Event < ActiveRecord::Base
   belongs_to :user
 
   default_scope :order => "time"
+
+  scope :in_future,  lambda{ where("time > ?", Time.now) }
+  scope :limit, lambda { |num| { :limit => num } }
 end

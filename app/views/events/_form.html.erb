@@ -1,12 +1,13 @@
 <%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-      <%= f.input :time, :input_html => {:class => 'input-mini' } %>
+    <%= f.input :description, :label => "Was?" %>
 
-    <%= f.input :place %>
-    <%= f.input :description %>
+    <%= f.input :time, :label => "Wann?", :input_html => {:class => 'input-mini' } %>
+
+    <%= f.input :place, :label => "Wo?" %>
 
     <div class="form-actions">
-      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= f.submit :class => 'btn btn-primary' %>
       <%= link_to 'Abbrechen', posts_path, :class => 'btn' %>
     </div>
   </fieldset>

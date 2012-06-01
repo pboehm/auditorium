@@ -37,17 +37,18 @@
 
     <div class="span4">
         <div class="well">
-            <h2>Termine</h2>
+            <h2>Nächste Termine</h2>
             <% @events.each do |event| %>
             <blockquote>
-                <small><%= event.time %></small>
+                <small><strong>Wann? </strong><%= event.time %></small>
                 <p><%= event.description %></p>
-                <small>in <%= distance_of_time_in_words(Time.now, event.time) %></small>
+                <small><strong>Wo?</strong> <%= event.place %></small>
             </blockquote>
             <% end %>
 
             <%= link_to 'Neuen Termin erstellen', new_event_path,
-                :class => 'btn btn-inverse' %>
+                :class => 'btn' %>
+
         </div>
     </div>
 </div>

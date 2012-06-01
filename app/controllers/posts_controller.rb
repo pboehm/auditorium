@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @posts = Post.all.sort { |p1,p2| p1.last_activity <=> p2.last_activity }.
       reverse.paginate(:page => params[:page], :per_page => 8)
 
-    @events = Event.all
+    @events = Event.in_future.limit(3)
 
     @title = "Aktuelle Diskussionen"
   end

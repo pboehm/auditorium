@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = Event.in_future
 
     @title = "Ausstehende Termine"
   end
