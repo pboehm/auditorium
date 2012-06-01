@@ -11,5 +11,7 @@ Auditorium::Application.routes.draw do
     resources :comments
   end
 
+  resources :events
+
   root :to => "Posts#index"
 end

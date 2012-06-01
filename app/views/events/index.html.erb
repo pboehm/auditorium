@@ -1,0 +1,17 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Was?</th>
+      <th>Wann?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.description %></td>
+        <td><%= event.time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

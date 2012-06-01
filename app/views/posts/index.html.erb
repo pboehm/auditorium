@@ -1,32 +1,53 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Thema</th>
-      <th>Autor</th>
-      <th>Letzte Aktivität</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td>
-          <%= format_link(post) %>
-          <%= is_new_post(post) %>
-          <%= new_comments(post) %>
-        </td>
-        <td><%= post.user.name %></td>
-        <td>vor <%= format_time_diff post.last_activity %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+    <div class="span8">
 
-<%= will_paginate @posts, :class=> "pager",
-                          :previous_label => "&larr;", :next_label => "&rarr;",
-                          :page_links => false,
-                          :style => "font-size: 200%"  %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Thema</th>
+                    <th>Autor</th>
+                    <th>Letzte Aktivität</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @posts.each do |post| %>
+                <tr>
+                    <td>
+                        <%= format_link(post) %>
+                        <%= is_new_post(post) %>
+                        <%= new_comments(post) %>
+                    </td>
+                    <td><%= post.user.name %></td>
+                    <td>vor <%= format_time_diff post.last_activity %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
 
-<div class="well">
-  <%= link_to 'Neue Diskussion erstellen', new_post_path,
-        :class => 'btn btn-primary btn-large' %>
+        <%= will_paginate @posts, :class=> "pager",
+                    :previous_label => "&larr;", :next_label => "&rarr;",
+                    :page_links => false,
+                    :style => "font-size: 200%"  %>
+
+        <div class="well">
+            <%= link_to 'Neue Diskussion erstellen', new_post_path,
+            :class => 'btn btn-primary btn-large' %>
+        </div>
+    </div>
+
+    <div class="span4">
+        <div class="well">
+            <h2>Termine</h2>
+            <% @events.each do |event| %>
+            <blockquote>
+                <small><%= event.time %></small>
+                <p><%= event.description %></p>
+                <small>in <%= distance_of_time_in_words(Time.now, event.time) %></small>
+            </blockquote>
+            <% end %>
+
+            <%= link_to 'Neuen Termin erstellen', new_event_path,
+                :class => 'btn btn-inverse' %>
+        </div>
+    </div>
 </div>

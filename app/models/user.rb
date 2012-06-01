@@ -24,6 +24,7 @@ class User < ActiveRecord::Base
 
     has_many :comments
     has_many :visits
+    has_many :events
 
     include Gravtastic
     gravtastic :filetype => :png, :size => 80

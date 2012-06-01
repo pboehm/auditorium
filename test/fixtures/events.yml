@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id          :integer         not null, primary key
+#  time        :datetime
+#  description :text
+#  created_at  :datetime        not null
+#  updated_at  :datetime        not null
+#  user_id     :integer
+#  place       :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  at: 2012-05-07 17:10:03
+  description: MyText
+
+two:
+  at: 2012-05-07 17:10:03
+  description: MyText
