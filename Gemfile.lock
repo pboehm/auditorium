@@ -83,6 +83,7 @@ GEM
     method_source (0.7.1)
     mime-types (1.18)
     multi_json (1.2.0)
+    mysql2 (0.3.11)
     polyglot (0.3.3)
     pry (0.9.9.4)
       coderay (~> 1.0.5)
@@ -150,6 +151,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     will_paginate (3.0.3)
+    yaml_db (0.2.3)
 
 PLATFORMS
   ruby
@@ -164,6 +166,7 @@ DEPENDENCIES
   guard
   guard-test
   jquery-rails
+  mysql2
   pry-rails
   rails (= 3.2.2)
   rails-i18n
@@ -173,3 +176,4 @@ DEPENDENCIES
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)
+  yaml_db
