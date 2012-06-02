@@ -12,3 +12,12 @@
  *= require_tree .
  *= require_tree ../../../vendor/assets/stylesheets/
 */
+
+/*
+ * Eventslist
+ */
+
+blockquote.event > p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

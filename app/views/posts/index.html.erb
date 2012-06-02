@@ -37,10 +37,10 @@
 
     <div class="span4">
         <div class="well">
-            <h2>Nächste Termine</h2>
+            <h2>Termine</h2>
             <% @events.each do |event| %>
-            <blockquote>
-                <small><strong>Wann? </strong><%= event.time %></small>
+            <blockquote class="event">
+                <small><strong>Wann?</strong> <span class="label"><%= event.time %></span></small>
                 <p><%= event.description %></p>
                 <small><strong>Wo?</strong> <%= event.place %></small>
             </blockquote>
