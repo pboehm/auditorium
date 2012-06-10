@@ -1,4 +1,6 @@
 Auditorium::Application.routes.draw do
+  get "ebooks/index"
+
   resources :users
   match 'register' => 'Users#new'
   match 'settings' => 'Users#edit'
@@ -12,6 +14,8 @@ Auditorium::Application.routes.draw do
   end
 
   resources :events
+
+  resources :ebooks
 
   root :to => "Posts#index"
 end
