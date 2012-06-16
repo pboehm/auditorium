@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
     validates_uniqueness_of :email
     validates_presence_of :password, :on => :create
-    validates_format_of :email, :with => /^(\w+)\.(\w+)@uni-rostock\.de$/i
+    validates_format_of :email, :with => /\A(\w+)\.(\w+)@uni-rostock\.de\Z/i
 
     before_save :extract_name_from_email
 

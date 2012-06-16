@@ -10,11 +10,12 @@
 #
 
 class Post < ActiveRecord::Base
+  attr_accessible :message
+
   validates_presence_of :message, :user_id
   validates_length_of :message, :within => 15..10000
 
   belongs_to :user
-
   has_many :visits
   has_many :comments
 

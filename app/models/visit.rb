@@ -10,6 +10,8 @@
 #
 
 class Visit < ActiveRecord::Base
+  attr_accessible
+
   belongs_to :user
   belongs_to :post
 
