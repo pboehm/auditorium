@@ -10,7 +10,7 @@
 #
 
 class Post < ActiveRecord::Base
-  attr_accessible :message
+  attr_accessible :message, :user
 
   validates_presence_of :message, :user_id
   validates_length_of :message, :within => 15..10000

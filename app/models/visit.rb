@@ -10,7 +10,7 @@
 #
 
 class Visit < ActiveRecord::Base
-  attr_accessible :updated_at
+  attr_accessible :updated_at, :user, :post
 
   belongs_to :user
   belongs_to :post
