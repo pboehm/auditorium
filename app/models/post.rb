@@ -23,12 +23,12 @@ class Post < ActiveRecord::Base
 
   auto_html_for :message do
     html_escape
+    link :target => "_blank", :rel => "nofollow"
     image
     gist
     redcarpet
     google_map(:width => 400, :height => 250)
     youtube(:width => 400, :height => 250)
-    link :target => "_blank", :rel => "nofollow"
     simple_format
   end
 
