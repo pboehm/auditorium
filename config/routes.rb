@@ -18,4 +18,6 @@ Auditorium::Application.routes.draw do
   resources :ebooks
 
   root :to => "Posts#index"
+
+  match "/remote/:token" => "remote#unread_content"
 end

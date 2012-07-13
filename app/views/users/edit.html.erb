@@ -4,6 +4,14 @@
 
   <%= f.input :notify_new_posts, :label => "Bei neuen Diskussionen eine Mail senden:" %>
 
+
+  <div class="control-group">
+    <label class="boolean optional control-label">Authentifikationstoken:</label>
+    <div class="controls">
+        <span class="badge"><%= @user.remote_auth_token %></span>
+    </div>
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, "Einstellungen ändern", :class => 'btn btn-primary' %>
     <%= link_to 'Abbrechen', posts_path, :class => 'btn' %>

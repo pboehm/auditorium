@@ -19,4 +19,6 @@ class Visit < ActiveRecord::Base
   validates_presence_of :post
 
   validates_uniqueness_of :user_id, :scope => :post_id
+
+  # default_scope :order => 'updated_at DESC'
 end

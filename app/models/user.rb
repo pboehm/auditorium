@@ -11,6 +11,7 @@
 #  last_login       :datetime
 #  notify_new_posts :boolean         default(TRUE)
 #
+require 'digest/md5'
 
 class User < ActiveRecord::Base
     attr_accessible :email, :password, :password_confirmation, :name, :notify_new_posts
@@ -28,6 +29,20 @@ class User < ActiveRecord::Base
 
     include Gravtastic
     gravtastic :filetype => :png, :size => 80
+
+    def remote_auth_token
+      pattern = "#{self.email}_#{self.name}_#{self.created_at}"
+      return Digest::MD5.hexdigest pattern
+    end
+
+    def last_page_visit
+      last_visit = Visit.find_by_user_id(self.id)
+      if last_login && last_login > self.last_login
+        return last_visit
+      end
+
+      return self.last_login
+    end
 
     def extract_name_from_email
 
