@@ -30,15 +30,21 @@ class User < ActiveRecord::Base
     include Gravtastic
     gravtastic :filetype => :png, :size => 80
 
+    # Public: generates a unique token that is used for remote authentication
+    #
+    # Returns the MD5 crypted data as a hash
     def remote_auth_token
       pattern = "#{self.email}_#{self.name}_#{self.created_at}"
       return Digest::MD5.hexdigest pattern
     end
 
+    # Public: Return the last time the page is viewed by the user
+    #
+    # Returns a datetime
     def last_page_visit
-      last_visit = Visit.find_by_user_id(self.id)
-      if last_login && last_login > self.last_login
-        return last_visit
+      last_visit = Visit.find_by_user_id(self)
+      if last_visit && last_visit.updated_at > self.last_login
+        return last_visit.updated_at
       end
 
       return self.last_login

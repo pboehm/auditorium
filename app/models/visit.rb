@@ -20,5 +20,5 @@ class Visit < ActiveRecord::Base
 
   validates_uniqueness_of :user_id, :scope => :post_id
 
-  # default_scope :order => 'updated_at DESC'
+  default_scope :order => 'updated_at DESC'
 end
