@@ -34,6 +34,11 @@
   </div>
 </div>
 
+<div id="invisible_message" class="alert alert-info invisible">
+  <a id="make_visible" class="close" data-dismiss="alert" href="#">Einblenden</a>
+  <h4 class="alert-heading"><span id="invisible_number">XXX</span> weitere Kommentare sind ausgeblendet</h4>
+</div>
+
 <div id="comments">
   <% @post.comments.each do |comment| %>
 
@@ -77,4 +82,40 @@
 
   </div>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+
+    // Make comments invisible if there are too much
+    $(document).ready(function() {
+      var size = $('div#comments > div.comment').length;
+      var counter = 0;
+
+      if (size >= 7) {
+        $('div#comments > div.comment').each(function(nr, comment){
+          if ( (nr +1) <= (size -5)) {
+            $(this).addClass("invisible");
+            counter++;
+          }
+        });
+
+        $('div#invisible_message span#invisible_number').text(counter);
+
+        $('div#invisible_message').removeClass('invisible');
+
+      }
+    });
+
+    // Make all comments visible
+    $(document).ready(function() {
+      $('#make_visible').click(function() {
+
+        $('div#comments > div.comment').each(function(nr, comment){
+          if ( $(this).hasClass('invisible') ) {
+            $(this).removeClass("invisible");
+          }
+        });
+
+      });
+    });
+</script>
 
