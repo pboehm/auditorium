@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th>Thema</th>
-                    <th>Autor</th>
+                    <!-- <th>Kommentare</th> -->
                     <th>Letzte Aktivität</th>
                 </tr>
             </thead>
@@ -17,8 +17,9 @@
                         <%= is_new_post(post) %>
                         <%= new_comments(post) %>
                     </td>
-                    <td><%= post.user.name %></td>
-                    <td>vor <%= format_time_diff post.last_activity %></td>
+                    <!-- <td><%= post.comments.size %></td> -->
+                    <td>vor <%= format_time_diff post.last_activity %>
+                        <i>(<%= post.last_active_user.name %>)</i></td>
                 </tr>
                 <% end %>
             </tbody>

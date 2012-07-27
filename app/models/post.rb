@@ -43,6 +43,17 @@ class Post < ActiveRecord::Base
     end
   end
 
+  # Public: find the user that acts last on this post
+  #
+  # Returns the specific datetime
+  def last_active_user
+    if self.comments.size > 0
+      self.comments.last.user
+    else
+      self.user
+    end
+  end
+
   # public: is post newer than the supplied datetime
   #
   # datetime - compared time
