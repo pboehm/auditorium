@@ -2,12 +2,12 @@
   <div class="span12">
 
     <div class="hero-unit">
-      <h1>Willkommen</h1>
-      <p>im Auditorium, der Diskussionsplattform für Studenten <br/>
-      der Informationstechnik/Technischen Informatik an der 
+      <h1>Moin, Moin</h1>
+      <p>Willkommen im Auditorium, der Diskussionsplattform für Studenten <br/>
+      der Informationstechnik/Technischen Informatik an der
       Universität Rostock.</p>
     </div>
-    
+
   </div>
 </div>
 
@@ -18,26 +18,26 @@
       <h1>Login</h1>
     </div>
 
-    <%= simple_form_for :session, :url => sessions_path, 
-            :html => { :class => 'well' } do |f| %>  
+    <%= simple_form_for :session, :url => sessions_path,
+            :html => { :class => 'well' } do |f| %>
 
     <fieldset>
-      <%= f.input :email, 
-                  :label => 'E-Mail', 
-                  :input_html => { :name => 'email' } 
+      <%= f.input :email,
+                  :label => 'E-Mail',
+                  :input_html => { :name => 'email' }
                   %>
       <%= f.input :password,
                   :label => 'Passwort',
-                  :input_html => { :name => 'password', 
-                  :type => 'password' } 
+                  :input_html => { :name => 'password',
+                  :type => 'password' }
                   %>
-      <%= f.submit "Login", 
-                  :class => 'btn btn-primary btn-large' 
+      <%= f.submit "Login",
+                  :class => 'btn btn-primary btn-large'
                   %>
     </fieldset>
-    <% end %> 
+    <% end %>
 
   </div>
   <div class="span7"></div>
 </div>
-  
+
