@@ -180,8 +180,8 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-will_paginate
   capistrano
-  coffee-rails (~> 3.2.1)
-  execjs (= 1.4.0)
+  coffee-rails
+  execjs
   gravtastic
   guard
   guard-test
@@ -191,9 +191,9 @@ DEPENDENCIES
   pry-rails
   rails (= 3.2.11)
   rails-i18n
-  sass-rails (~> 3.2.3)
+  sass-rails
   simple_form
-  therubyracer (= 0.10.2)
+  therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   will_paginate (~> 3.0)

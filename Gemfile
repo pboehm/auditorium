@@ -11,14 +11,14 @@ gem 'yaml_db'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem "less-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'libv8', '3.11.8.11'
-  gem "execjs", "1.4.0"
-  gem "therubyracer", "0.10.2"
+  gem "execjs"
+  gem "therubyracer"
 
   gem 'uglifier', '>= 1.0.3'
 
