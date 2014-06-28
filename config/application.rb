@@ -32,11 +32,12 @@ module Auditorium
     # mail settings
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
-      :address => "smtp.live.com",
+      :address => ENV['MAIL_SERVER'],
       :user_name => ENV['MAIL_USER'],
       :password => ENV['MAIL_PASSWORD'],
-      :authentication => :login,
-      :enable_starttls_auto => true
+      :authentication => :plain,
+      :port => 465,
+      :ssl => true,
     }
 
     config.assets.initialize_on_precompile = false
